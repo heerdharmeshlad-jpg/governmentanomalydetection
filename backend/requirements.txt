@@ -37,3 +37,4 @@ email-validator==2.3.0
 email-validator
 pydantic[email]
 pydantic[email]
+psycopg2-binary
