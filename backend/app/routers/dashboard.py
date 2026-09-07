@@ -60,3 +60,40 @@ def get_risk_distribution(current_user: User = Depends(get_current_user)):
         "medium": 48,
         "low": 17
     }
+
+@router.get("/district-performance")
+def get_district_performance(
+    current_user: User = Depends(get_current_user)
+):
+    return [
+        {
+            "name": "Varanasi",
+            "cases": 24,
+            "riskIndex": 82,
+            "budgetUtil": 88
+        },
+        {
+            "name": "Patna",
+            "cases": 31,
+            "riskIndex": 91,
+            "budgetUtil": 94
+        },
+        {
+            "name": "Ahmedabad",
+            "cases": 9,
+            "riskIndex": 32,
+            "budgetUtil": 72
+        },
+        {
+            "name": "Pune",
+            "cases": 18,
+            "riskIndex": 68,
+            "budgetUtil": 84
+        },
+        {
+            "name": "Ranchi",
+            "cases": 14,
+            "riskIndex": 54,
+            "budgetUtil": 65
+        }
+    ]
