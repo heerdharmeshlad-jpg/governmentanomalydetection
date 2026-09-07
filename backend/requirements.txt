@@ -36,3 +36,4 @@ websockets==17.1
 email-validator==2.3.0
 email-validator
 pydantic[email]
+pydantic[email]
