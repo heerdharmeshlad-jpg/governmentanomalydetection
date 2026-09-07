@@ -1,7 +1,11 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-DATABASE_URL = "postgresql+psycopg://app_user:app_password@localhost:5433/anomaly_db"
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL environment variable is not set")
 
 engine = create_engine(DATABASE_URL)
 
@@ -13,11 +17,9 @@ SessionLocal = sessionmaker(
 
 Base = declarative_base()
 
-
 def get_db():
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
-
